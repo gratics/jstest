@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <script src="testfolder/js/snap.svg-min.js"></script>
+  <script src="jspsych-6.3.1/jspsych.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-html-keyboard-response.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-visual-search-circle.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-preload.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-video-button-response.js"></script>
+  <link rel="stylesheet" href="jspsych-6.3.1/css/jspsych.css">
+</head>
+<body></body>
+<script>
+
+  var preload_images = {
+    type: 'preload',
+    images: ['img/facebook.svg', 'img/instagram.svg', 'img/youtube.svg','img/twitter.svg','img/tiktok.svg', 'img/amazon.svg','img/backwardN.gif', 'img/normalN.gif', 'img/fixation.gif','img/dropbox.svg', 'img/paypal.svg', 'img/linkedin.svg','img/apple.svg','img/wordpress.svg'],
+    video: ['video/v2.mp4','video/v7.mp4','video/v5.mp4','video/v1e.mp4','video/v6.mp4'],
+  }
+
+
+  var intro = {
+    type: 'html-keyboard-response',
+    stimulus: '<p>You will see a set of Icons on the following screens. The icons will be presented for a maximum of two seconds. Press <b>"j"</b> if the amazon logo is present (placeholder). If there is no amazon logo press <b> "f"</b>. At various times during the trial, you will be offered to take a short break to watch some entertaining videos. You are free to either skip, or watch them as you please.</p><p>Press any key to begin.</p>'
+  }
+
+  var trial_1 = {
+
+    target_present: true,
+    foil: ['img/facebook.svg','img/instagram.svg','img/youtube.svg','img/twitter.svg','img/tiktok.svg'], // example of using multiple foils.
+    set_size: 4,
+    data: { image_type: 'Social' }
+    
+  }
+
+  var trial_2 = {
+    target_present: false,
+    foil: ['img/facebook.svg','img/instagram.svg','img/youtube.svg','img/twitter.svg','img/tiktok.svg'], // example of using multiple foils.
+    set_size: 4,
+    data: { image_type: 'Social' }
+  }
+
+  var trial_3 = {
+    target_present: false,
+    foil: ['img/facebook.svg','img/instagram.svg','img/youtube.svg','img/twitter.svg','img/tiktok.svg'], // example of using multiple foils.
+    set_size: 5,
+    data: { image_type: 'Social' }
+  }
+  
+
+  var trial_4 = {
+    target_present: true,
+    foil: ['img/facebook.svg','img/instagram.svg','img/youtube.svg','img/twitter.svg','img/tiktok.svg'], // example of using multiple foils.
+    set_size: 5,
+    data: { image_type: 'Social' },
+  }
+
+  var trial_5 = {
+
+    target_present: true,
+    foil: ['img/dropbox.svg', 'img/paypal.svg', 'img/linkedin.svg','img/apple.svg','img/wordpress.svg'], // example of using multiple foils.
+    set_size: 4,
+    data: { image_type: 'Social' }
+
+    } 
+
+  var trial_6 = {
+    target_present: false,
+    foil: ['img/dropbox.svg', 'img/paypal.svg', 'img/linkedin.svg','img/apple.svg','img/wordpress.svg'], // example of using multiple foils.
+    set_size: 4,
+    data: { image_type: 'Social' }
+    }
+
+  var trial_7 = {
+    target_present: false,
+    foil: ['img/dropbox.svg', 'img/paypal.svg', 'img/linkedin.svg','img/apple.svg','img/wordpress.svg'], // example of using multiple foils.
+    set_size: 5,
+    data: { image_type: 'Social' }
+    }
+
+
+  var trial_8 = {
+    target_present: true,
+    foil: ['img/dropbox.svg', 'img/paypal.svg', 'img/linkedin.svg','img/apple.svg','img/wordpress.svg'], // example of using multiple foils.
+    set_size: 5,
+    data: { image_type: 'Social' },
+    }
+
+  var trials = {
+    type: 'visual-search-circle',
+    target: 'img/amazon.svg',
+    prompt: "<p>Is the ink color (r)ed, (g)reen, or (b)lue?</p>",
+    foil: 'img/normalN.gif',
+    fixation_image: 'img/fixation.gif',
+    trial_duration: 2000,
+    fixation_duration: 1000,
+    timeline: [trial_1, trial_2, trial_3, trial_4,trial_5,trial_6,trial_7,trial_8],
+    sample: {
+        type: 'fixed-repetitions',
+        size: 3}
+  };
+
+  var breaks = {
+    type: 'html-keyboard-response',
+    stimulus: '<p>On the next screen you will have the option to watch a 60 second video clip to relax a bit.</p><p>However, if you do not want to take a break, you can press any button to continue the experiment.</p>',
+
+  };
+
+  var videobreak = {
+    type: 'video-button-response',
+    stimulus:[
+    'video/v1e.mp4'],
+    choices : ['Continue'],
+    prompt: "<p>Press the button to continue with the experiment</p>",
+    autoplay: true,
+    width:200,
+    height:400,
+    
+  
+  };
+  var videobreak1 = {
+    type: 'video-button-response',
+    stimulus:[
+    'video/v2.mp4'],
+    choices : ['Continue'],
+    prompt: "<p>Press the button to continue with the experiment</p>",
+    autoplay: true,
+    width:200,
+    height:400,
+  };
+  var videobreak2 = {
+    type: 'video-button-response',
+    stimulus:[
+    'video/v5.mp4'],
+    choices : ['Continue'],
+    prompt: "<p>Press the button to continue with the experiment</p>",
+    autoplay: true,
+    width:200,
+    height:400,
+  };
+  var videobreak3 = {
+    type: 'video-button-response',
+    stimulus:[
+    'video/v6.mp4'],
+    choices : ['Continue'],
+    prompt: "<p>Press the button to continue with the experiment</p>",
+    autoplay: true,
+    width:200,
+    height:400,
+  };
+  var videobreak4 = {
+    type: 'video-button-response',
+    stimulus:[
+    'video/v7.mp4'],
+    choices : ['Continue'],
+    prompt: "<p>Press the button to continue with the experiment</p>",
+    autoplay: true,
+    width:200,
+    height:400,
+  };
+  
+  
+  jsPsych.init({
+    timeline: [preload_images, intro, trials,breaks,videobreak,trials,breaks,videobreak1,trials,breaks,videobreak2,trials,breaks,videobreak3,trials,breaks,videobreak4],
+  
+    on_finish: function() {
+      jsPsych.data.displayData();
+    }
+  });
+</script>
+
+</html>
