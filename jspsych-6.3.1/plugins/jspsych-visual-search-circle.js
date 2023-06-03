@@ -156,6 +156,7 @@ jsPsych.plugins["visual-search-circle"] = (function() {
     }
 
     function show_search_array() {
+      clear_display();
 
       var search_array_images = [];
 
