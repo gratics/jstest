@@ -97,6 +97,12 @@ jsPsych.plugins["visual-search-circle"] = (function() {
         pretty_name: 'Fixation duration',
         default: 1000,
         description: 'How long to show the fixation image for before the search array (in milliseconds).'
+      },
+      prompt: {
+        type: jsPsych.plugins.parameterType.STRING,
+        pretty_name: 'Prompt',
+        default: null,
+        description: 'Any content here will be displayed below the stimulus.'
       }
     }
   }
@@ -156,7 +162,7 @@ jsPsych.plugins["visual-search-circle"] = (function() {
     }
 
     function show_search_array() {
-     
+
       var search_array_images = [];
 
       var to_present = [];
